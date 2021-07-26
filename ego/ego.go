@@ -8,6 +8,7 @@ import (
 type HandlerFunc func(http.ResponseWriter, *http.Request)
 
 type Engine struct {
+    // define a map which key-value pair is "string-HandleFunc" called "router"
     router map[string]HandlerFunc
 }
 
@@ -15,6 +16,7 @@ func New() *Engine {
     return &Engine{router: make(map[string]HandlerFunc)}
 }
 
+// define a mathod named "addRoute" for "Engine" class(or you can call is struct)
 func (engine *Engine) addRoute(method string, pattern string, handler HandlerFunc) {
     key := method + "-" + pattern
     engine.router[key] = handler
