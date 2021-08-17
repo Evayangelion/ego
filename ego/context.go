@@ -24,6 +24,7 @@ func newContext(w http.ResponseWriter, req *http.Request) *Context {
 }
 
 func (c *Context) PostForm(key string) string {
+    // http.Request.FormValue is used for get user's parameter
     return c.Req.FormValue(key)
 }
 
